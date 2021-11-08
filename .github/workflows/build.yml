@@ -135,6 +135,8 @@ jobs:
       # Setup MacOS dependencies
       CIBW_BEFORE_ALL_MACOS: |
         export MAC_ARCH="${{ matrix.macarch }}"
+        python3 -m pip install Sphinx
+        python3 setup.py docs
         cd buildconfig/macdependencies
         bash ./install_mac_deps.sh
 

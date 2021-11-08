@@ -41,10 +41,11 @@ jobs:
       run: |
         sudo apt-get update --fix-missing
         sudo apt-get upgrade
-        sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libfreetype6-dev libportmidi-dev libjpeg8-dev python3-setuptools python3-dev python3-numpy
+        sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libfreetype6-dev libportmidi-dev libjpeg8-dev python3-setuptools python3-dev python3-numpy python3-sphinx
 
     - name: Make sdist and install it
       run: |
+        python3 setup.py docs
         python3 setup.py sdist
         pip3 install dist/pygame-*.tar.gz -vv
 
